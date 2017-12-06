@@ -20,7 +20,7 @@ My ultra-minimal CSS might make me look like theme tartare but that means less s
 
 ====
 
-This theme uses CMB2 to create create meta boxes.  These boxes only post to the a custom post type that was created called journal.  It uses WPquery to query the db using the meta information to sort the information for the archive page which is just all the journal entries as an index.  This loop is in template-parts/content-journal-archive.php
+This theme uses CMB2 to create create meta boxes.  These boxes only post to a custom post type that was created called 'journal'.  It uses WPquery to query the db using the meta information to sort the information for the archive page which is just all the journal entries as an index.  This loop is in template-parts/content-journal-archive.php
 
 The code in content-journal-archive.php uses a few loops which are merely for creating the layout which is a two column layout.  It decides how many entries to place on each side if it were not for the layout requirement the code would be much simpler.
 
