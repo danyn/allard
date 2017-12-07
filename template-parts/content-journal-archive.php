@@ -19,7 +19,7 @@
       'volume_num' => array(key=>'allard_volume'),
       'issue_num' => array(key=>'allard_issue'),
       ),
-    'orderby' =>  array( 'allard_volume' => 'DESC', 'allard_issue' => 'ASC' ),
+    'orderby' =>  array( 'volume_num' => 'DESC', 'issue_num' => 'ASC' ),
   
 );   
   
