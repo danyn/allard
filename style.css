@@ -979,12 +979,36 @@ p.body {
     background-color:white;
     margin-left: 144px;
     box-shadow: -4px 4px 4px #888888;
+	  min-height: 360px;
 }
 body{
     background-color:#DFDFDF;
 }
 
 
+/*links*/
+
+a:link {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 13px;
+	font-weight: normal;
+	color: #003399;
+	text-decoration: none;
+}
+a:visited {
+	color: #6666CC;
+	text-decoration: none;
+	
+}
+a:hover {
+	color: #3399FF;
+	text-decoration: none;
+}
+a:active {
+
+	color: #006699;
+	text-decoration: none;
+}
 
 
 
@@ -1084,6 +1108,11 @@ p.allard-disclaimer {
     float:left;
     padding:2%
 }
+
+.volume-issues li {
+    list-style-type: none;
+}
+
 
 
 
