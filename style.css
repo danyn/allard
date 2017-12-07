@@ -981,6 +981,7 @@ p.body {
     box-shadow: -4px 4px 4px #888888;
 	  min-height: 360px;
 }
+
 body{
     background-color:#DFDFDF;
 }
@@ -995,24 +996,21 @@ a:link {
 	color: #003399;
 	text-decoration: none;
 }
+
 a:visited {
 	color: #6666CC;
-	text-decoration: none;
-	
+	text-decoration: none;	
 }
+
 a:hover {
 	color: #3399FF;
 	text-decoration: none;
 }
-a:active {
 
+a:active {
 	color: #006699;
 	text-decoration: none;
 }
-
-
-
-
 
 /*
 * Main Navigation
@@ -1034,6 +1032,12 @@ nav#site-navigation {
     min-width: 1215px;
 }
 
+/*global*/
+
+h1 {
+    font-size: 24px;
+    color: #677AA4;
+}
 
 
 
