@@ -1062,4 +1062,28 @@ p.allard-disclaimer {
     font-size: 13px;
 }
 
+/*journal archives layout*/
+
+.a-journal{
+	padding:2%;
+}
+
+.a-journal .big-volume-number {
+    width: 25%;
+    float: left;
+}
+
+.a-journal .volume-issues {
+    width: 75%;
+    float: left;
+}
+
+.journal-archives {
+    width: 50%;
+    overflow: auto;
+    float:left;
+    padding:2%
+}
+
+
 

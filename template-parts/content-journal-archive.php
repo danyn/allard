@@ -73,9 +73,9 @@
         <?php
 
         if ( $volume_number == $num_volumes ) {
-              echo ' <div class="journal-archives-left">';
+              echo ' <div class="journal-archives journal-archives-left">';
             } elseif($volume_number == floor($half_volumes) ) {
-              echo ' <div class="journal-archives-right">';
+              echo ' <div class="journal-archives journal-archives-right">';
             }
 
          ?>
