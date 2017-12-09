@@ -11,17 +11,8 @@
 
 <?php
 
-   //the Args   https://codex.wordpress.org/Class_Reference/WP_Query#Parameters
-    $args = array(
-    'post_type' => 'journal',
-    'posts_per_page' => -1,//show all posts and on one page
-    'meta_query' => array(
-      'volume_num' => array(key=>'allard_volume'),
-      'issue_num' => array(key=>'allard_issue'),
-      ),
-    'orderby' =>  array( 'volume_num' => 'DESC', 'issue_num' => 'ASC' ),
-  
-);   
+	//get the args for our query defined in extend/functions.php
+	$args = allard_query_args('journal', -1, 'allard_volume', 'allard_issue');
   
     // The Query Results object
     $query_results_journals = new WP_Query( $args );
