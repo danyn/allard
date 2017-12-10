@@ -23,10 +23,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php echo __FILE__ . 'hello from file' ?>
-
-	
-
+  
 	<div class="entry-content">
    
     <?php
@@ -54,14 +51,9 @@
 			$num_volumes = 1.0 * get_post_meta( get_the_ID(), 'allard_volume', true );
 		  	//determine half of the volumes for layout reasons
 			$half_volumes = $num_volumes/2.0;
-		  	//determine if half of the volumes number is for an even number or odd 
 		    //should yield 0.5 for odd numbers and 0 for even
 			$is_even = ( $half_volumes - floor($half_volumes) ) == 0;
-//debug info
-		  	echo "the volume number is: ";
-			if($is_even){echo "even";}else{echo "odd <br>";}
-			echo 'there are this many volumes: ' . $num_volumes . '<br>';
-			echo 'half of the volumes is : ' . $half_volumes . '<br>';
+
 		}
 		
 	  	//keep track of the number of iterations for layout reasons
@@ -70,7 +62,7 @@
 	  //current volume number		
 	  $volume_number= 1 * get_post_meta( get_the_ID(), 'allard_volume', true );
 
-	  //build the divs for issues based on volume_number while the volume number is the same		
+	  //build the divs for issues based on volume_number while the volume number is the same This is an accumulator to be used in the following divs.		
 	  $issues = ""; 
      
 		while( $volume_number==get_post_meta( get_the_ID(), 'allard_volume', true ) ){       
