@@ -37,3 +37,32 @@ function allard_query_args($post_type, $posts_per_page, $cmb_volume, $cmb_issue 
     'orderby' =>  array( 'volume_num' => 'DESC', 'issue_num' => 'ASC' ),
 	);
 }
+
+
+function allard_debug_archive($num_volumes, $half_volumes, $is_even){
+//	allard_debug_archive($num_volumes, $half_volumes, $is_even);
+	
+	echo '<div style="position:fixed;background-color:rgba(255,255,2550,.8);width:300px;border:1px solid black;overflow:auto">';
+
+	//dump the query result so you can see what it is
+	//	var_dump($query_results_journals);
+	
+    echo "	<p>Post ID:" . get_the_ID()  . " -> " .gettype(get_the_ID()) . "</p1>";
+	
+	echo "	<p>Journal Volume:" . get_post_meta( get_the_ID(), 'allard_volume', true )  . " -> " .gettype ( get_post_meta( get_the_ID(), 'allard_volume', true ) ) . "</p1>";
+	
+
+ 	echo "	<p> Number of volumes: " . $num_volumes . " -> " .gettype($num_volumes) . "</p>";
+
+
+	echo "	<p> Half of the volumes: " . $half_volumes . " -> " .gettype($half_volumes) . "</p>";
+
+
+	echo "	<p>Is even: " .$is_even. " -> " .gettype($is_even) ."</p>";
+
+
+	echo "	<p>The first issue returned is: " . get_post_meta( get_the_ID(), 'allard_issue', true ) . " -> " .gettype(get_post_meta( get_the_ID(), 'allard_issue', true )) ."</p>";
+
+	echo '</div>';
+
+}
