@@ -8,6 +8,7 @@
  */
 
 //includes
+//CMB2 and the custom post type
 require get_template_directory() . '/extend/allard-post-types/Allard-Custom-Post-Types.php';
 
 
@@ -66,3 +67,50 @@ function allard_debug_archive($num_volumes, $half_volumes, $is_even){
 	echo '</div>';
 
 }
+
+function allard_open_archives_div($volume_number, $num_volumes, $div_break){
+//	 call->
+//	allard_open_archives_div($volume_number, $num_volumes, $div_break);
+	
+	if ( $volume_number == $num_volumes ){
+		//write an opening div when its the most recent volume
+		echo ' <div class="journal-archives journal-archives-left">';
+	}elseif($volume_number == $div_break ){
+		//write an opening div when at half volume mark
+		echo ' <div class="journal-archives journal-archives-right">';
+	}
+}
+
+function allard_close_archives_div($div_break, $volume_number){
+//	allard_close_archives_div($div_break, $volume_number);
+	
+ 	if ( $volume_number == ($div_break + 1)) {
+		//write the closing div for  .journal-archives-left 
+		echo ' </div>';
+  	}elseif($volume_number == 1 ) {
+		//write the closing div for .journal-archives-right
+		//here the volume represents the final volume in the result->Volume 1 (DESC) 
+		echo ' </div>';
+	}
+}
+
+function allard_print_volume($volume_number, $issues){
+	
+//	allard_print_volume($volume_number, $issues);
+	
+	echo '<div class="a-journal">
+		<div class="big-volume-number"> Volume '
+			. $volume_number .
+		'</div>
+		<div class="volume-issues">
+			<ul>'
+				. $issues .
+			'</ul>    
+		</div>
+	</div>';
+
+}
+	 	
+	 	
+	 	
+	 	

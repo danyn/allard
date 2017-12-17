@@ -18,6 +18,10 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+
+All functions external to underscores and wordpress are located in extend/functions.php
+
+This theme uses CMB2 to allow for a post type of journal. CMB2 is located in extend/
 */
 
 /*--------------------------------------------------------------
@@ -1096,10 +1100,12 @@ p.allard-disclaimer {
 	padding:2%;
 }
 
+
 .a-journal .big-volume-number {
     width: 25%;
     float: left;
 }
+
 
 .a-journal .volume-issues {
     width: 75%;
@@ -1112,6 +1118,12 @@ p.allard-disclaimer {
     float:left;
     padding:2%
 }
+
+.volume-issues ul {
+    min-height: 76px;
+}
+
+
 
 .volume-issues li {
     list-style-type: none;

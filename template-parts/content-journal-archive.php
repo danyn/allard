@@ -40,7 +40,7 @@ if ( $query_results_journals->have_posts() ) {
 ?>
 
 	<!--debug info-->
-	<?php allard_debug_archive($num_volumes, $half_volumes, $is_even);?>
+	<?php  // allard_debug_archive($num_volumes, $half_volumes, $is_even);?>
 
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -57,60 +57,34 @@ if ( $query_results_journals->have_posts() ) {
  		
      
 <?php
-//		start looping through results
+		//start looping through results
 	while ( $query_results_journals->have_posts() ) {	
 		
 		//current volume number		
 		$volume_number= 1 * get_post_meta( get_the_ID(), 'allard_volume', true );
 
-	//issues
-		?>
-        
-		<?php
-
-		if ( $volume_number == $num_volumes ){
-		  //write an opening div when its the most recent volume
-			echo ' <div class="journal-archives journal-archives-left">';
-			}elseif($volume_number == $div_break ){
-		  //write an opening div when at half volume mark
-			echo ' <div class="journal-archives journal-archives-right">';
-			}//close if
+		//open divs conditionally to create columns based on the number of volumes
+		allard_open_archives_div($volume_number, $num_volumes, $div_break);
 			
-		//iterate the post variable forward while the current volume is the same as the one we entered with
-		//collect in li's for each volume's issues to be used in  div.volume-issues ul 
+		//iterate the post variable forward for each volume set
+		//collect issues in li's to echo in div.volume-issues ul using allard_print_volume()
 		$issues = ""; 
 		while( $volume_number==get_post_meta( get_the_ID(), 'allard_volume', true ) ){       
 				$issues .=  '<li> <a href="' . get_the_permalink() .'" title="'. '">'. get_the_title() . '</a></li>';      
 				$query_results_journals->the_post();  //iterate the post variable forward 
 		}
 
-		 ?>
-	 <div class="a-journal">
-	 	<div class="big-volume-number">
-			Volume <?php echo $volume_number; ?>
-	 	</div>
-		<div class="volume-issues">
-			<ul>
-				<?php echo $issues; ?>
-		 	</ul>    
-		</div>
-	</div>
-<?php
-   
-   if ( $volume_number == ($div_break + 1)) {
-		//write the closing div for  .journal-archives-left 
-	 	echo ' </div>';
-  	} elseif($volume_number == 1 ) {
-	  //write the closing div for .journal-archives-right when the volume represents the final volume in the result, this is the first volume published.
-		echo ' </div>';
-   }
-     
+		//putput the volume and ul to display the issues of the volume
+		allard_print_volume($volume_number, $issues);
+		
+		allard_close_archives_div($div_break, $volume_number);
+        
 	}//end while have posts
     
 	echo '</div>';//.all-journal-archives
 	  
-// have posts is false.
-} else {
+
+} else {// have posts is false.
 	echo 'The Archive for Jounral Volumes is currently empty. ';
 }
   
