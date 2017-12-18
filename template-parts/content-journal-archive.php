@@ -69,9 +69,12 @@ if ( $query_results_journals->have_posts() ) {
 		//iterate the post variable forward for each volume set
 		//collect issues in li's to echo in div.volume-issues ul using allard_print_volume()
 		$issues = ""; 
-		while( $volume_number==get_post_meta( get_the_ID(), 'allard_volume', true ) ){       
-				$issues .=  '<li> <a href="' . get_the_permalink() .'" title="'. '">'. get_the_title() . '</a></li>';      
-				$query_results_journals->the_post();  //iterate the post variable forward 
+		while( $volume_number==get_post_meta( get_the_ID(), 'allard_volume', true ) ){
+			//iterate the post forward once for the first post from then on iterate forward after data is accumulated
+			if ($volume_number==$num_volumes){$query_results_journals->the_post();}
+			
+			$issues .=  '<li> <a href="' . get_the_permalink() .'" title="'. '">'. get_the_title() . '</a></li>';      
+			$query_results_journals->the_post();  //iterate the post variable forward 
 		}
 
 		//putput the volume and ul to display the issues of the volume
