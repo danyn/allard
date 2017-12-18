@@ -10,37 +10,32 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-	    <?php echo __FILE__ ?>
-		<main id="main" class="site-main" role="main">
-            <div class="entry-content">
-			<?php
-			while ( have_posts() ) : the_post();
-
-				get_template_part( 'template-parts/content', 'frontpage' );
-
-
-			endwhile; // End of the loop.
-			?>
+<div id="primary" class="content-area">
+	<?php echo __FILE__ ?>
+	<main id="main" class="site-main" role="main">
+		<div class="entry-content">
+<?php
+		while ( have_posts() ) : the_post();
+			get_template_part( 'template-parts/content', 'frontpage' );
+		endwhile; // End of the loop.
+?>
 
 <!--https://stackoverflow.com/questions/21869117/display-content-of-most-recent-custom-post-type-on-a-page-->
 
             <?php
                 $new_loop = new WP_Query( array(
                 'post_type' => 'journal',
-                    'posts_per_page' => 1 // put number of posts that you'd like to display
+                'posts_per_page' => 1 
                 ) );
             ?>
             
             <?php if ( $new_loop->have_posts() ) : ?>
                 <?php while ( $new_loop->have_posts() ) : $new_loop->the_post(); ?>
-                      <h2> Current Issue </h2>
-                      <h2><?php the_title(); ?></h2>
-            
-                      <?php echo get_post_meta( get_the_ID(), 'allard_synopsis', true ) ?>
-                      <?php // the_excerpt(); ?>
-                      
-                     <a href="<?php the_permalink(); ?>">Abstract</a>
+					<h2> Current Issue </h2>
+					<h2><?php the_title(); ?></h2>
+
+					<?php echo get_post_meta( get_the_ID(), 'allard_synopsis', true ) ?>
+					<a href="<?php the_permalink(); ?>">Abstract</a>
             
                 <?php endwhile;?>
             <?php else: ?>
