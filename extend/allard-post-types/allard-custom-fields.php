@@ -66,7 +66,7 @@ function allard_register_metabox() {
 	$cmb_allard->add_field( array(
 		'name'    => esc_html__( 'Synopsis - Articles, Essay Contest Winner, Book Review', 'cmb2' ),
 		'desc'    => esc_html__( 'Synopsis of the journal issue without any abstracts', 'cmb2' ),
-		'id'      => $prefix . 'wysiwyg',
+		'id'      => $prefix . 'synopsis',
 		'type'    => 'wysiwyg',
 		'options' => array(
 			'textarea_rows' => 25,

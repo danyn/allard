@@ -34,10 +34,11 @@ get_header(); ?>
             
             <?php if ( $new_loop->have_posts() ) : ?>
                 <?php while ( $new_loop->have_posts() ) : $new_loop->the_post(); ?>
-                        <h2> Current Issue </h2>
+                      <h2> Current Issue </h2>
                       <h2><?php the_title(); ?></h2>
             
-                      <?php the_excerpt(); ?>
+                      <?php echo get_post_meta( get_the_ID(), 'allard_synopsis', true ) ?>
+                      <?php // the_excerpt(); ?>
                       
                      <a href="<?php the_permalink(); ?>">Abstract</a>
             
